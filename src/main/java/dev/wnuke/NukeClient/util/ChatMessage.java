@@ -7,7 +7,7 @@ import net.minecraft.util.text.TextFormatting;
 
 public class ChatMessage {
     private static final ClientPlayerEntity player = Minecraft.getInstance().player;
-    public static final String NUKE_CLIENT_CHAT_PREFIX = TextFormatting.BLACK + "[" + TextFormatting.YELLOW + TextFormatting.BOLD + "NUKE Client" + TextFormatting.BLACK + "] ";
+    public static final String NUKE_CLIENT_CHAT_PREFIX = TextFormatting.BLACK + "[" + TextFormatting.YELLOW + TextFormatting.BOLD + "NUKE Client" + TextFormatting.BLACK + "] " + TextFormatting.WHITE;
     public static void sendRawMessage(String message) {
         player.sendMessage(new StringTextComponent(message));
     }
