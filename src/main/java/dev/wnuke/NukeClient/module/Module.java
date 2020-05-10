@@ -29,7 +29,7 @@ public class Module {
     }
 
     public void registerSettings() {
-        settings.addSetting("enabled", isEnabled());
+        settings.addSetting("enabled", false);
         selfSettings();
         LOGGER.info("Registered settings of " + this.getName());
     }

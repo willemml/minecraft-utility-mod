@@ -1,9 +1,9 @@
 package dev.wnuke.NukeClient;
 
+import dev.wnuke.NukeClient.command.CommandManager;
 import dev.wnuke.NukeClient.module.ModuleManager;
 import dev.wnuke.NukeClient.util.SettingsManager;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.EventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -24,7 +24,6 @@ public class NukeClient {
     public static final Logger log = LogManager.getLogger("NUKE Client");
     public static final ModuleManager MODULE_MANAGER = new ModuleManager();
     public static final SettingsManager SETTINGS_MANAGER = new SettingsManager();
-    public static EventBus eventBus;
 
     public NukeClient() {
         // Do register listeners for setup
@@ -37,6 +36,7 @@ public class NukeClient {
         log.info("Initializing " + MODNAME + " " + MODVER);
         try {
             MODULE_MANAGER.loadModules();
+            new CommandManager();
         } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException err) {
             log.fatal(err);
             log.warn("Failed to load at least one module.");

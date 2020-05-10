@@ -1,5 +1,6 @@
 package dev.wnuke.NukeClient.module;
 
+import dev.wnuke.NukeClient.util.ModuleSettings;
 import org.reflections.Reflections;
 
 import java.lang.reflect.InvocationTargetException;
@@ -32,5 +33,8 @@ public class ModuleManager {
                 module.getValue().onEnable();
             }
         }
+    }
+    public ModuleSettings getGlobalSettings() {
+        return modules.get("Global Settings").getSettings();
     }
 }

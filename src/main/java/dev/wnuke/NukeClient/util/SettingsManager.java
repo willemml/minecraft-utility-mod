@@ -72,13 +72,11 @@ public class SettingsManager {
             String moduleName = module.getValue().getName();
             try {
                 if (settingsArray.containsKey(moduleName)) {
-                    NukeClient.log.info("Settings for " + moduleName + " exist, loading them.");
                     module.getValue().setSettings(settingsArray.get(moduleName));
                 } else {
                     module.getValue().registerSettings();
                 }
             } catch (NullPointerException npe) {
-                NukeClient.log.info("NullPointerException on " + module.getValue().getName());
                 module.getValue().registerSettings();
             }
         }
