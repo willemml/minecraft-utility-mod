@@ -2,6 +2,7 @@ package dev.wnuke.NukeClient.command;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -57,6 +58,7 @@ public class CommandManager {
             } else {
                 sendMessage("Please enter a command after the prefix");
             }
+            Minecraft.getInstance().ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
             event.setCanceled(true);
         }
     }
