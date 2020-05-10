@@ -37,4 +37,8 @@ public class ModuleManager {
     public ModuleSettings getGlobalSettings() {
         return modules.get("Global Settings").getSettings();
     }
+
+    public Map<String, Module> getModules() {
+        return modules;
+    }
 }

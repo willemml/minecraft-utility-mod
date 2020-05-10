@@ -36,10 +36,15 @@ public class NukeClient {
         log.info("Initializing " + MODNAME + " " + MODVER);
         try {
             MODULE_MANAGER.loadModules();
+        } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException err) {
+            log.fatal(err);
+            log.warn("Failed to load at least one module");
+        }
+        try {
             new CommandManager();
         } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException err) {
             log.fatal(err);
-            log.warn("Failed to load at least one module.");
+            log.warn("Failed to load at least one module");
         }
         log.info(MODNAME + " initialized!");
     }
