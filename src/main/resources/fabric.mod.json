@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "nuke-client",
+  "name": "NUKE Client",
+  "version": "1.0.0",
+  "authors": ["wnuke"],
+  "description": "A Utility mod that aims to assist players with gameplay.",
+  "contact": {
+    "email": "wnuke@wnuke.dev",
+    "homepage": "https://git.wnuke.dev/wnuke/nuke-client",
+    "issues": "https://git.wnuke.dev/wnuke/nuke-client/-/issues",
+    "sources": "https://git.wnuke.dev/wnuke/nuke-client"
+  },
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "dev.wnuke.nukeClient.NukeClient"
+      }
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.8.8"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
