@@ -8,7 +8,7 @@ Download the source code:
 
 - `git clone https://git.wnuke.dev/wnuke/nuke-client`
 
-If you do not have an IDE you should download one, I recommend ![IntelliJ IDEA CE](https://www.jetbrains.com/idea/).
+If you do not have an IDE you should download one, I recommend [IntelliJ IDEA CE](https://www.jetbrains.com/idea/).
 
 Import the project to your IDE of choice:
 
@@ -18,4 +18,4 @@ Import the project to your IDE of choice:
 
 ## License
 
-This project is available under the GNU GPLv3. Please read the ![license file](/LICENSE) for more information.
+This project is available under the GNU GPLv3. Please read the [license file](/LICENSE) for more information.

@@ -15,12 +15,14 @@
     "main": [
       {
         "adapter": "kotlin",
-        "value": "dev.wnuke.nukeClient.NukeClient"
+        "value": "dev.wnuke.nukeclient.NukeClient"
       }
     ]
   },
   "depends": {
-    "fabricloader": ">=0.8.8"
+    "fabricloader": ">=0.8.8",
+    "fabric-language-kotlin": ">=1.3.71+build.1",
+    "fabric": ">=0.13.1+build.370-1.16"
   },
   "suggests": {
     "flamingo": "*"
