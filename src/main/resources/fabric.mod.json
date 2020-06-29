@@ -25,7 +25,7 @@
     "fabric": ">=0.13.1+build.370-1.16"
   },
   "mixins": [
-    "nuke-client.mixins.json"
+    "nukeclient.mixins.json"
   ],
   "suggests": {
     "flamingo": "*"

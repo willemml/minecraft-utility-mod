@@ -6,7 +6,7 @@ import java.lang.reflect.Method
 class EventManager {
     private val registeredMethods: HashMap<Class<*>, Method> = HashMap()
 
-    fun register(clazz: Class<Any>) {
+    fun register(clazz: Class<*>) {
         clazz.declaredMethods.forEach { if (it.isAnnotationPresent(Subscribe::class.java)) register(it) }
     }
 
