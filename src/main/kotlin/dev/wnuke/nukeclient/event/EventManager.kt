@@ -1,24 +1,37 @@
 package dev.wnuke.nukeclient.event
 
 import java.lang.reflect.Method
+import kotlin.reflect.KClass
 
 
 class EventManager {
-    private val registeredMethods: HashMap<Class<*>, Method> = HashMap()
+    private val registeredMethods: HashMap<Pair<Any, Method>, Class<*>> = HashMap()
 
-    fun register(clazz: Class<*>) {
-        clazz.declaredMethods.forEach { if (it.isAnnotationPresent(Subscribe::class.java)) register(it) }
+    fun register(clazz: Any) {
+        clazz.javaClass.declaredMethods.forEach {
+            if (it.isAnnotationPresent(Subscribe::class.java)) {
+                if (it.parameters.size == 1) {
+                    if (it.parameters[0].type.genericSuperclass == Event::class.java) {
+                        registeredMethods[Pair(clazz, it)] = it.parameters[0].type
+                    }
+                }
+            }
+        }
+    }
+
+    fun unRegister(clazz: Any) {
+        clazz.javaClass.declaredMethods.forEach {
+            if (it.isAnnotationPresent(Subscribe::class.java)) {
+                if (it.parameters.size == 1) {
+                    if (it.parameters[0].type.genericSuperclass == Event::class.java) {
+                        registeredMethods.remove(Pair(clazz, it))
+                    }
+                }
+            }
+        }
     }
 
     fun post(event: Any) {
-        registeredMethods.forEach { (t, u) -> if (t == event) u(event) }
-    }
-
-    private fun register(method: Method) {
-        if (method.parameters.size == 1) {
-            if (method.parameters[0].type.genericSuperclass == Event::class.java) {
-                registeredMethods[method.parameters[0].type] = method
-            }
-        }
+        registeredMethods.forEach { (t, u) -> if (u == event.javaClass) t.second.invoke(t.first, event) }
     }
 }

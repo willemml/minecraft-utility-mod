@@ -10,16 +10,10 @@ object NukeClient : ModInitializer {
     val eventManager = EventManager()
 
     override fun onInitialize() {
-        eventManager.register(NukeClient.javaClass)
         println("--------------------------")
         println("")
         println("NUKE Client Loaded!")
         println("")
         println("--------------------------")
-    }
-
-    @Subscribe
-    fun onTick(e: Tick) {
-        println("Ticked!")
     }
 }

@@ -3,6 +3,7 @@
   "package": "dev.wnuke.nukeclient.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "GameRenderer"
   ],
   "client": [
   ],
