@@ -1,8 +1,6 @@
 package dev.wnuke.nukeclient
 
 import dev.wnuke.nukeclient.event.EventManager
-import dev.wnuke.nukeclient.event.Subscribe
-import dev.wnuke.nukeclient.event.events.Tick
 import net.fabricmc.api.ModInitializer
 
 object NukeClient : ModInitializer {
