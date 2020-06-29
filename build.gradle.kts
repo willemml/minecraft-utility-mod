@@ -74,9 +74,10 @@ tasks {
         shadowOut = outputs.files.single()
     }
     named<ProcessResources>("processResources") {
-        include("fabric.mod.json")
-        filesMatching("fabric.mod.json") {
+        include("nuke-client.mod.json")
+        filesMatching("nuke-client.mod.json") {
             expand("version" to version)
+            expand("id" to modid)
         }
     }
 }

@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "dev.wnuke.nukeclient.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "GameRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
