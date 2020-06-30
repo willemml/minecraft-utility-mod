@@ -1,6 +1,6 @@
 pluginManagement {
     repositories {
-        maven(url="http://maven.fabricmc.net/") {
+        maven(url="https://maven.fabricmc.net/") {
             name = "Fabric"
         }
         maven(url = "https://kotlin.bintray.com/kotlinx") {

@@ -7,7 +7,7 @@ plugins {
 }
 
 val modid = "nuke-client"
-val kotlinVersion = "1.3.71+build.1"
+val kotlinVersion = "1.3.72+build.1"
 val fabricApiVersion = "0.13.1+build.370-1.16"
 version = "1.0.0"
 group = "dev.wnuke"
@@ -25,20 +25,21 @@ dependencies {
     minecraft(group = "com.mojang", name = "minecraft", version = "1.16.1")
     mappings(group = "net.fabricmc", name = "yarn", version = "1.16.1+build.4", classifier = "v2")
 
-    modCompile(group = "net.fabricmc", name = "fabric-loader", version = "0.8.8+build.202")
+    modImplementation(group = "net.fabricmc", name = "fabric-loader", version = "0.8.8+build.202")
 
     // Fabric API. This is technically optional, but you probably want it anyway.
-    modCompile(group = "net.fabricmc.fabric-api", name = "fabric-api", version = fabricApiVersion)
+    modImplementation(group = "net.fabricmc.fabric-api", name = "fabric-api", version = fabricApiVersion)
 
     // Reflections
-    modCompile(group = "javassist", name = "javassist", version = "3.12.1.GA")
-    modCompile(group = "org.reflections", name = "reflections", version = "0.9.10")
+    modImplementation(group = "javassist", name = "javassist", version = "3.12.1.GA")
+    modImplementation(group = "org.reflections", name = "reflections", version = "0.9.10")
 
     // Kotlin
-    modCompile(group = "net.fabricmc", name = "fabric-language-kotlin", version = kotlinVersion)
+    modImplementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version = kotlinVersion)
+    modImplementation(group = "net.fabricmc", name = "fabric-language-kotlin", version = kotlinVersion)
 }
 
-var shadowOut = file("build/libs/nuke-client.jar")
+var shadowOut = file("build/libs/$modid-$version-shadow.jar")
 
 val sourcesJar = tasks.create<Jar>("sourcesJar") {
     archiveClassifier.set("sources")
@@ -52,25 +53,19 @@ tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
-    named<org.gradle.jvm.tasks.Jar>("jar") {
-        dependsOn(reflections)
-        from("LICENSE", "README.md")
-    }
     named<net.fabricmc.loom.task.RemapJarTask>("remapJar") {
         dependsOn(shadowJar)
         mustRunAfter(shadowJar)
         input.set(shadowOut)
+        archiveClassifier.set("")
     }
     named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
         dependencies {
-            include(dependency("dev.wnuke:nukeclient"))
             include(dependency("javassist:javassist"))
             include(dependency("org.reflections:reflections"))
-            include(dependency("net.fabricmc:fabric-language-kotlin:$kotlinVersion"))
-            include(dependency("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion"))
         }
         minimize()
-        archiveClassifier.set("")
+        archiveClassifier.set("shadow")
         shadowOut = outputs.files.single()
     }
     named<ProcessResources>("processResources") {
