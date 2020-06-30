@@ -4,25 +4,9 @@
 # https://github.com/gradle/gradle
 image: gradle:alpine
 
-# Disable the Gradle daemon for Continuous Integration servers as correctness
-# is usually a priority over speed in CI environments. Using a fresh
-# runtime for each build is more reliable since the runtime is completely
-# isolated from any previous builds.
-variables:
-  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
-
-before_script:
-  - export GRADLE_USER_HOME=`pwd`/.gradle
-
 build:
   stage: build
-  script: ./gradlew --build-cache build
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: push
-    paths:
-      - build
-      - .gradle
+  script: ./gradlew build
   artifacts:
     paths:
     - build/libs/nuke-client-1.0.0.jar
@@ -31,9 +15,3 @@ build:
 test:
   stage: test
   script: ./gradlew check
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: pull
-    paths:
-      - build
-      - .gradle
