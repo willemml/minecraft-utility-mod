@@ -6,7 +6,7 @@ image: gradle:alpine
 
 build:
   stage: build
-  script: ./gradlew build
+  script: ./gradlew --no-daemon build
   artifacts:
     paths:
     - build/libs/nuke-client-1.0.0.jar
@@ -14,4 +14,4 @@ build:
 
 test:
   stage: test
-  script: ./gradlew check
+  script: ./gradlew --no-daemon check
