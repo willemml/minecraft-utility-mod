@@ -1,11 +1,9 @@
 package dev.wnuke.nukeclient.event
 
 import java.lang.reflect.Method
-import kotlin.reflect.KClass
-
 
 class EventManager {
-    private val registeredMethods: HashMap<Pair<Any, Method>, Class<*>> = HashMap()
+    private val registeredMethods: HashMap<Pair<Any?, Method>, Class<*>> = HashMap()
 
     fun register(clazz: Any) {
         clazz.javaClass.declaredMethods.forEach {
@@ -31,7 +29,7 @@ class EventManager {
         }
     }
 
-    fun post(event: Any) {
+    fun <T:Event> post(event: T) {
         registeredMethods.forEach { (t, u) -> if (u == event.javaClass) t.second.invoke(t.first, event) }
     }
 }
