@@ -1,9 +1,9 @@
 {
   "required": true,
-  "package": "dev.wnuke.nukeclient.mixin",
+  "package": "net.willemmml.fabricumod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "GameRenderer"
+    "net.willemmml.fabricumod.mixin.GameRenderer"
   ],
   "client": [
   ],

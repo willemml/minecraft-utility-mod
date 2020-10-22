@@ -1,4 +1,4 @@
-package dev.wnuke.nukeclient.event
+package net.willemml.fabricumod.event
 
 import java.lang.reflect.Method
 
@@ -29,7 +29,7 @@ class EventManager {
         }
     }
 
-    fun <T:Event> post(event: T) {
+    fun <T: Event> post(event: T) {
         registeredMethods.forEach { (t, u) -> if (u == event.javaClass) t.second.invoke(t.first, event) }
     }
 }

@@ -1,9 +1,9 @@
-package dev.wnuke.nukeclient.module.modules
+package net.willemml.fabricumod.module.modules
 
-import dev.wnuke.nukeclient.event.Subscribe
-import dev.wnuke.nukeclient.event.events.Tick
-import dev.wnuke.nukeclient.module.Category
-import dev.wnuke.nukeclient.module.Module
+import net.willemml.fabricumod.event.Subscribe
+import net.willemml.fabricumod.event.events.Tick
+import net.willemml.fabricumod.module.Category
+import net.willemml.fabricumod.module.Module
 
 class FullBright : Module("full-bright", "Let's you see in the dark.", Category.RENDER) {
     private var startGamma = 0.0

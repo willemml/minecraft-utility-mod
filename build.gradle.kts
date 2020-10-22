@@ -10,7 +10,7 @@ val modid = "nuke-client"
 val kotlinVersion = "1.3.72+build.1"
 val fabricApiVersion = "0.13.1+build.370-1.16"
 version = "1.0.0"
-group = "dev.wnuke"
+group = "dev.willemml"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -18,7 +18,7 @@ java {
 }
 
 base {
-    archivesBaseName = "nuke-client"
+    archivesBaseName = "fabric-utility-mod"
 }
 
 dependencies {
@@ -70,7 +70,7 @@ tasks {
     }
     named<ProcessResources>("processResources") {
         include("fabric.mod.json")
-        include("nukeclient.mixins.json")
+        include("fabricumod.mixins.json")
         filesMatching("fabric.mod.json") {
             expand("version" to version)
             expand("id" to modid)

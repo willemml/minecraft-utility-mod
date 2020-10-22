@@ -1,6 +1,6 @@
-package dev.wnuke.nukeclient.module
+package net.willemml.fabricumod.module
 
-import dev.wnuke.nukeclient.NukeClient.eventManager
+import net.willemml.fabricumod.FabricUMod.eventManager
 import net.minecraft.client.MinecraftClient
 
 open class Module(

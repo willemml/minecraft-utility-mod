@@ -1,21 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "nuke-client",
-  "name": "NUKE Client",
+  "id": "fabricumod",
+  "name": "Fabric U Mod",
   "version": "1.0.0",
-  "authors": ["wnuke"],
+  "authors": ["willemml"],
   "description": "A Utility mod that aims to assist players with gameplay.",
-  "contact": {
-    "email": "wnuke@wnuke.dev",
-    "homepage": "https://client.wnuke.dev",
-    "issues": "https://git.wnuke.dev/wnuke/nuke-client/-/issues",
-    "sources": "https://git.wnuke.dev/wnuke/nuke-client"
-  },
   "entrypoints": {
     "main": [
       {
         "adapter": "kotlin",
-        "value": "dev.wnuke.nukeclient.NukeClient"
+        "value": "net.willemml.fabricumod.FabricUMod"
       }
     ]
   },
@@ -25,7 +19,7 @@
     "fabric": ">=0.13.1+build.370-1.16"
   },
   "mixins": [
-    "nukeclient.mixins.json"
+    "fabricumod.mixins.json"
   ],
   "suggests": {
     "flamingo": "*"

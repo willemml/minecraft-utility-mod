@@ -1,4 +1,4 @@
-package dev.wnuke.nukeclient.module
+package net.willemml.fabricumod.module
 
 import org.reflections.Reflections
 import kotlin.reflect.KClass
@@ -9,7 +9,7 @@ class ModuleManager {
     init {
         modules.clear()
         val moduleClassIterator =
-                Reflections("dev.wnuke.nukeclient.module").getSubTypesOf(
+                Reflections("net.willemml.fabricumod.module").getSubTypesOf(
                         Module::class.java
                 ).iterator()
         while (moduleClassIterator.hasNext()) {
@@ -18,7 +18,7 @@ class ModuleManager {
         }
     }
 
-    fun <T:Module> getModuleByClass(clazz: KClass<T>): Module? {
+    fun <T: Module> getModuleByClass(clazz: KClass<T>): Module? {
         val moduleIterator = modules.iterator()
         while (moduleIterator.hasNext()) {
             val current = moduleIterator.next()

@@ -1,11 +1,11 @@
-package dev.wnuke.nukeclient
+package net.willemml.fabricumod
 
-import dev.wnuke.nukeclient.event.EventManager
-import dev.wnuke.nukeclient.module.ModuleManager
-import dev.wnuke.nukeclient.module.modules.FullBright
+import net.willemml.fabricumod.event.EventManager
+import net.willemml.fabricumod.module.ModuleManager
+import net.willemml.fabricumod.module.modules.FullBright
 import net.fabricmc.api.ModInitializer
 
-object NukeClient : ModInitializer {
+object FabricUMod : ModInitializer {
     @JvmStatic
     val eventManager = EventManager()
     val moduleManager = ModuleManager()
@@ -14,7 +14,7 @@ object NukeClient : ModInitializer {
         moduleManager.getModuleByClass(FullBright::class)?.enable()
         println("--------------------------")
         println("")
-        println("NUKE Client Loaded!")
+        println("Fabric Utility Mod Loaded!")
         println("")
         println("--------------------------")
     }

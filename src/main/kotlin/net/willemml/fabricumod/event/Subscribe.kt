@@ -1,4 +1,4 @@
-package dev.wnuke.nukeclient.event
+package net.willemml.fabricumod.event
 
 @Target(AnnotationTarget.FUNCTION)
 annotation class Subscribe
