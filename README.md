@@ -1,12 +1,12 @@
-# NUKE Client
+# Fabric Utility Mod
 
-NUKE Client is a utility mod for Minecraft that aims to assist the player in certain aspects of the game.
+Fabric Utility Mod is a mod for Minecraft that aims to assist the player in certain aspects of the game.
 
 ## Setup
 
 Download the source code:
 
-- `git clone https://git.wnuke.dev/wnuke/nuke-client`
+- `git clone https://github.com/willemml/minecraft-utility-mod`
 
 If you do not have an IDE you should download one, I recommend [IntelliJ IDEA CE](https://www.jetbrains.com/idea/).
 
